@@ -22,3 +22,29 @@
    ```bash
    jupyter notebook
    ```
+
+## Secrets Management
+
+The project uses a secure secrets management system that encrypts sensitive configuration values. The system stores encryption keys in `~/.secrets/pybit/` and configuration in `config/secrets.yml`.
+
+### Usage
+
+```python
+from utils.secrets_manager import SecretsManager
+
+# Initialize
+secrets = SecretsManager()
+
+# Get a secret
+db_password = secrets.get_secret('database.password')
+api_key = secrets.get_secret('api.key')
+```
+
+### Security Notes
+
+- Encryption key is stored in `~/.secrets/pybit/secret.key`
+- Configuration file and keys are excluded from git
+- Directory permissions are set to 700 (user access only)
+- Key file permissions are set to 600 (user read/write only)
+
+For more details, see `utils/secrets_manager.py`.

@@ -1,0 +1,5 @@
+database:
+  password: your_password_here  # Will be encrypted
+
+api:
+  key: your_api_key_here  # Will be encrypted
